@@ -35,6 +35,12 @@ class PostsController extends Controller
         return view('post', compact('post'));
     }
 
+    public function viewPhotos($id) {
+        $user = User::find($id);
+
+        return view('photos', compact('user'));
+    }
+
     function viewEditPost($id) {
         $post = Post::find($id);
 

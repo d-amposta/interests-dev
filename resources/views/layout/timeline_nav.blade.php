@@ -37,12 +37,12 @@
                             <span class="timeline_nav_icon"><i class="far fa-calendar"></i></span>
                             <span>Events</span>
                         </a></li>
-                        <li><a href="{{url('photos')}}">
+                        <li><a href="{{url(''.Auth::user()->id.'/photos')}}">
                             <span class="timeline_nav_icon"><i class="far fa-image"></i></span>
                             <span>Photos</span>
                         </a></li>
                         <p>Account</p>
-                        <li><a href="{{url(''.Auth::user()->id.'/edit-profile')}}">
+                        <li><a href="{{url(''.Auth::user()->id.'/edit/profile')}}">
                             <span class="timeline_nav_icon"><i class="far fa-edit"></i></span>
                             <span>Edit Profile</span>
                         </a></li>

@@ -54,7 +54,7 @@
 					@endforeach				
 				</div>
 				<div class="quick_footer">
-					<a href="">View all</a>
+					<a href='{{url("".$user->id."/photos")}}'>View all</a>
 				</div>
 			</div>
 		</div>

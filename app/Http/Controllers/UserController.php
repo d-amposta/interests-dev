@@ -51,7 +51,7 @@ class UserController extends Controller
 		$user_tbe->birthday = $request->birthday;
 		$user_tbe->save();
 
-		return redirect('/profile');
+		return redirect()->route('user', [$user_tbe]);
 	}
 
 	function viewAccountSettings($id) {
@@ -74,7 +74,7 @@ class UserController extends Controller
 		return redirect('/delete_profile_confirm');
 	}
 
-	function changeProfilePicture(Request $request) {
+	function updateAvatar(Request $request) {
 		$id=Auth::user()->id;
 		$user_tbe=User::find($id);
 		if(empty($request->avatar)) {
@@ -91,7 +91,7 @@ class UserController extends Controller
 		return back();
 	}
 
-	function changeCoverPhoto(Request $request) {
+	function updateCoverPhoto(Request $request) {
 		$id=Auth::user()->id;
 		$user_tbe=User::find($id);
 		if(empty($request->cover_photo)) {
@@ -106,6 +106,12 @@ class UserController extends Controller
 		$user_tbe->save();
 
 		return back();
+	}
+
+	public function viewEvents() {
+		$user = Auth::user()->id;
+
+		return view('events', compact('user'));
 	}
 	
 }

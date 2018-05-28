@@ -6,17 +6,7 @@
 	
 		<div class="row">
 			<div class="col-xs-12 col-md-3">
-				<div class="setting_nav">
-					<div class="setting_header">
-						<p>Profile Settings</p>
-					</div>
-					<nav>
-						<ul>
-							<li><a href="">Edit Profile</a></li>
-							<li><a href="">Account Settings</a></li>
-						</ul>
-					</nav>
-				</div>
+				@include('layout.setting_nav')
 			</div>
 			<div class="col-xs-12 col-md-9">
 				<div class="account-setting-container">

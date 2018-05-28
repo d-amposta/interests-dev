@@ -239,6 +239,13 @@ a:hover {
 .pqv_auth_cover {
 	background-color: #f2f2f2;
 	height: 90px;
+	overflow: hidden;
+}
+
+.pqv_auth_cover img {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .pqv_auth {
@@ -621,6 +628,13 @@ a:hover {
 .profile_cover {
 	height: 300px;
 	background-color: #f2f2f2;
+	overflow: hidden;
+}
+
+.profile_cover img {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .profile_nav {
@@ -654,6 +668,11 @@ a:hover {
 .profilenav_label,
 .profilenav_value {
 	font-weight: 700;
+}
+
+.profilenav_label:hover,
+.profilenav_value:hover {
+	color: #cc2774;
 }
 
 .profilenav_value {
@@ -740,6 +759,18 @@ a:hover {
 	text-align: center;
 	font-weight: 700;
 	font-size: 1.3em;
+}
+
+.profile_modal_header {
+	padding: 10px;
+	border-bottom: 1px solid #f2f2f2;
+	margin-bottom: 20px;
+}
+
+.profile_modal_header p {
+	font-size: 1.1em;
+	font-weight: 500;
+	margin: 0;
 }
 
 /*interests*/

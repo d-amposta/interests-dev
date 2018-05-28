@@ -37,9 +37,9 @@ Route::get('search', 'SearchController@displayResults');
 
 Route::get('{id}', 'UserController@viewProfile')->name('user');
 
-Route::get('/{id}/edit-profile', 'UserController@editUser');
+Route::get('/{id}/edit/profile', 'UserController@editUser');
 
-Route::post('/{id}/edit-profile', 'UserController@saveEditUser');
+Route::post('/{id}/edit/profile', 'UserController@saveEditUser');
 
 Route::get('/{id}/account-settings', 'UserController@viewAccountSettings');
 
@@ -79,8 +79,14 @@ Route::get('/{id}/interests', 'UserController@viewInterests');
 
 Route::get('/{id}/followers', 'UserController@viewFollowers');
 
-Route::post('change_profile_picture', 'UserController@changeProfilePicture');
+Route::post('{id}/edit/avatar', 'UserController@updateAvatar');
+
+Route::post('{id}/edit/cover-photo', 'UserController@updateCoverPhoto');
 
 Route::get('post/{id}', 'PostsController@viewPost')->name('post');
+
+Route::get('{id}/photos', 'PostsController@viewPhotos');
+
+Route::get('events', 'UserController@viewEvents');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

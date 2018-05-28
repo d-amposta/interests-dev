@@ -32,7 +32,6 @@ $(document).ready(function(){
         var otherContainer = $(".post_header_options");
         var optionsDisplay = optionsContainer.css('display');
         
-        otherContainer.hide();
         optionsContainer.toggle();
     })
 

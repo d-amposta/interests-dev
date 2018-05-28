@@ -6,17 +6,7 @@
 
 	<div class="row edit-profile-container">
 		<div class="col-xs-12 col-md-3">
-			<div class="side_option_nav">
-				<div class="side_option_header">
-					<p>Profile Settings</p>
-				</div>
-				<nav>
-					<ul>
-						<li><a href="">Edit Profile</a></li>
-						<li><a href='{{url("".Auth::user()->id."/account-settings")}}'>Account Settings</a></li>
-					</ul>
-				</nav>
-			</div>
+			@include('layout.setting_nav')
 		</div>
 		<div class="col-xs-12 col-md-9">
 			<div class="form-wrapper">

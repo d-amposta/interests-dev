@@ -46,10 +46,10 @@
         <div class="col-sm-3">
             <div class="quick_view_container today_container">
                 <div class="quick_header">
-                    <p>Today</p>
+                    <p>Birthdays</p>
                 </div>
                 <div class="quick_content">
-                    <p>Birthdays</p>
+                    <!-- <p>Birthdays</p> -->
                     <ul>
                         @if(count($birthdays) > 0)
                             @foreach($birthdays as $birthday)
@@ -59,10 +59,10 @@
                         <li>No one is celebrating their birthday today</li>
                         @endif
                     </ul>
-                    <p>Events</p>
+                    <!-- <p>Events</p>
                     <ul>
                         <li>No events at this time</li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
             <div class="quick_view_container">

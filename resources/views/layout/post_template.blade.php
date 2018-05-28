@@ -10,9 +10,9 @@
             <button data-dismiss="modal">No</button>
         </form>
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    </div>
+  </div>
+</div>
 
 <div class="post_container">
     <div class="post_header">
