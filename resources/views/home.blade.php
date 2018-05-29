@@ -3,12 +3,12 @@
 @section('content')
 <div class="feed">
     <div class="row">
-        <div class="col-xs-12 col-sm-3">
+        <div class="col-md-4 col-lg-3 side_nav">
             @include('layout.timeline_nav')
         </div>
 
         <!-- posts -->
-        <div class="col-sm-6 site_content">
+        <div class="col-md-8 col-lg-6 site_content">
             <div class="newsfeed-form">
                 <form method="POST" action='{{url("new_post")}}' enctype="multipart/form-data">
                     {{csrf_field()}}
@@ -43,8 +43,8 @@
         </div><!-- col -->
         
         <!-- suggested interests -->
-        <div class="col-sm-3">
-            <div class="quick_view_container today_container">
+        <div class="col-lg-3 ifWideScreen">
+            <div class="quick_view_container today_container movable_div" data-count="{{count($birthdays)}}">
                 <div class="quick_header">
                     <p>Birthdays</p>
                 </div>
@@ -65,7 +65,7 @@
                     </ul> -->
                 </div>
             </div>
-            <div class="quick_view_container">
+            <div class="quick_view_container movable_div">
                 <div class="quick_header">
                     <p>Suggested Interests</p>
                 </div>

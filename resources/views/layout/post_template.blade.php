@@ -4,6 +4,9 @@
       <div class="modal-body">
         <p>Are you sure you want to delete this post?</p>
         <p>{{$post->post}}</p>
+        @if(!empty($post->picture))
+            <img src="/{{$post->picture}}">
+        @endif
         <form method="POST" action='{{url("delete/post/".$post->id."")}}'>
             {{csrf_field()}}
             <input type="submit" name='delete_post' value="Yes">

@@ -2,8 +2,6 @@
 
 @section('content')
 
-@include("layout.profile_header")
-
 	<div class="row edit-profile-container">
 		<div class="col-xs-12 col-md-3">
 			@include('layout.setting_nav')

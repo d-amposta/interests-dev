@@ -7,6 +7,7 @@ use App\Post;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Reply;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
@@ -57,8 +58,9 @@ class PostsController extends Controller
 
     function deletePost($id) {
     	$post=Post::find($id);
+        $file=$post->picture;
     	$post->delete();
-
-    	return back();
+    	
+        return back();
     }
 }

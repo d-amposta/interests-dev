@@ -229,6 +229,7 @@ a:hover {
 	background-color: #fff;
 	border: 1px solid #f2f2f2;
 	height: 100%;
+	margin-bottom: 15px;
 }
 
 .profile_quick_view {
@@ -289,10 +290,6 @@ a:hover {
 .pqv_dropdown_btn p {
 	font-size: 0.9em;
 	margin: 0;
-}
-
-.timeline_dropdown_menu {
-	display: none;
 }
 
 .pqv_stats {
@@ -479,7 +476,7 @@ a:hover {
 }
 
 .reply_content {
-	display: inline-block;
+	display: block;
 }
 
 .reply_avatar {
@@ -525,6 +522,14 @@ a:hover {
 
 .quick_content a {
 	color: #cc2774;
+}
+
+.quick_content .location {
+	color: #657786;
+}
+
+.location .location_icon {
+	margin-right: 5px;
 }
 
 .today_container .quick_content p {
@@ -773,6 +778,48 @@ a:hover {
 	margin: 0;
 }
 
+.profile_modal_content {
+	text-align: center;
+}
+
+.modal_btn {
+	cursor: pointer;
+}
+
+.modal_icon {
+	display: block;
+	margin-bottom: 20px;
+	font-size: 1.7em;
+}
+
+.profile_modal_content input[type=file] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 0;
+	opacity: 0;
+}
+
+.profile_modal_content h6 {
+	font-size: 1.1em;
+	font-weight: 500;
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+
+.profile_modal_content p {
+	font-size: 0.9em;
+	font-weight: 400;
+	color: #657786;
+}
+
+.profile_modal_content .btn {
+	display: block;
+	width: 30%;
+	margin: auto;
+}
+
 /*interests*/
 
 .interest_nav ul{
@@ -929,7 +976,7 @@ a:hover {
 }
 
 .edit-profile-container form .btn {
-	width: 50%;
+	width: 30%;
 	position: relative;
 	left: 50%;
 	transform: translateX(-50%);

@@ -61,9 +61,9 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href=""><i class="fas fa-users" alt="Suggested Interests"></i></a></li>
-                        <li><a href=""><i class="far fa-calendar" alt="Birthday"></i></a></li>
-                        <li><a href="{{route('home')}}"><i class="fas fa-newspaper"></i></a></li>
+                        <li><a href='{{url("".Auth::user()->id."")}}'><i class="far fa-clipboard" alt="Posts"></i></a></li>
+                        <li><a href="{{url(''.Auth::user()->id.'/photos')}}"><i class="far fa-image" alt=""></i></a></li>
+                        <li><a href='{{url("".Auth::user()->id."/suggested-interests")}}'><i class="fas fa-users" alt="Suggested Interests"></i></a></li>
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>

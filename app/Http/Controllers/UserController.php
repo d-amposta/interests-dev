@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Post;
+use Illuminate\Support\Carbon;
 
 class UserController extends Controller
 {
@@ -46,9 +47,10 @@ class UserController extends Controller
 		$user_tbe=User::find($id);
 		$user_tbe->name = $request->name;
 		$user_tbe->email = $request->email;
+		$user_tbe->birthday = $request->birthday;
 		$user_tbe->bio = $request->bio;
 		$user_tbe->interest = $request->interest;
-		$user_tbe->birthday = $request->birthday;
+		$user_tbe->location = $request->location;
 		$user_tbe->save();
 
 		return redirect()->route('user', [$user_tbe]);
@@ -108,10 +110,18 @@ class UserController extends Controller
 		return back();
 	}
 
-	public function viewEvents() {
-		$user = Auth::user()->id;
+	public function viewEvents($id) {
+		$user=User::find($id);
+		$birthdays=Auth::user()->userRequests()->whereRaw('DATE_FORMAT(birthday, "%m-%d") = ?', [Carbon::now()->format('m-d')])->get();
 
-		return view('events', compact('user'));
+		return view('events', compact('user', 'birthdays'));
+	}
+
+	public function suggestedInterests($id) {
+		$user=User::find($id);
+		$suggested_interests=User::where('interest', 'LIKE', '%'.Auth::user()->interest.'%')->get();
+
+		return view('suggested_interests', compact('user', 'suggested_interests'));
 	}
 	
 }

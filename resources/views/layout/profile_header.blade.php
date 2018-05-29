@@ -8,7 +8,13 @@
       	<div class="profile_modal_content">
       		<form method="POST" action='{{url("".Auth::user()->id."/edit/avatar")}}' enctype="multipart/form-data">
 	            {{csrf_field()}}
-	            <button><input type="file" name="avatar"></button>
+	            <input type="file" id="avatar" name="avatar" class="input">
+	            <label for="avatar" class="modal_btn">
+	            	<span class="modal_icon"><i class="fas fa-upload"></i></span>
+	            	<h6>Upload Photo</h6>
+	            	<p>Browse your computer</p>
+	            </label>
+	            <p class="file-name"></p>
 	            <input type="submit" name='change_avatar' value="Change Avatar" class="btn">
 	        </form>	
       	</div>
@@ -21,11 +27,22 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <form method="POST" action='{{url("".Auth::user()->id."/edit/cover-photo")}}' enctype="multipart/form-data">
-            {{csrf_field()}}
-            <input type="file" name="cover_photo">
-            <input type="submit" name='change_cover_photo' value="Change Cover Photo" class="btn">
-        </form>
+      	<div class="profile_modal_header">
+      		<p>Update Cover Photo</p>
+      	</div>
+      	<div class="profile_modal_content">
+      		<form method="POST" action='{{url("".Auth::user()->id."/edit/cover-photo")}}' enctype="multipart/form-data">
+	            {{csrf_field()}}
+	            <input type="file" id="cover_photo" name="cover_photo" class="input">
+	            <label for="cover_photo" class="modal_btn">
+	            	<span class="modal_icon"><i class="fas fa-upload"></i></span>
+	            	<h6>Upload Photo</h6>
+	            	<p>Browse your computer</p>
+	            </label>
+	            <p class="file-name"></p>
+	            <input type="submit" name='change_cover_photo' value="Change Cover Photo" class="btn">
+	        </form>	
+      	</div>
       </div>
     </div>
   </div>
@@ -72,7 +89,7 @@
 						<span class="profilenav_label">Followers</span>
 						<span class="profilenav_value">{{count($user->getFollowers)}}</span>
 					</a></li>
-					<li><a href="">
+					<li><a href='{{url("".$user->id."/photos")}}'>
 						<span class="profilenav_label">Photos</span>
 						<span class="profilenav_value">{{count($user->getPhotos())}}</span>
 					</a></li>

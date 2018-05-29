@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('auth/register');
 });
 
+Route::get('/login', function() {
+	return redirect('/');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -87,6 +91,8 @@ Route::get('post/{id}', 'PostsController@viewPost')->name('post');
 
 Route::get('{id}/photos', 'PostsController@viewPhotos');
 
-Route::get('events', 'UserController@viewEvents');
+Route::get('{id}/events', 'UserController@viewEvents');
 
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('{id}/suggested-interests', 'UserController@suggestedInterests');
+
+Route::get('{id}/logout', '\App\Http\Controllers\Auth\LoginController@logout');

@@ -32,23 +32,13 @@
                 <div class="post_content">
                     <form method="POST" action='{{url("edit/post/".$post->id."")}}'>
                         {{csrf_field()}}
-                        <div class="row">
-                            <div class="col-xs-10">
-                                <div class="form-group">
-                                    <input type="text" name="post" value="{{$post->post}}" placeholder="Write a caption..." class="form-control">
-                                </div>        
-                            </div>
-                            <div class="col-xs-2">
-                                <div class="form-group">
-                                    <input type="submit" class="btn">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                        <input type="text" name="post" value="{{$post->post}}" placeholder="Write a caption..." class="form-control">
                     @if(!empty($post->picture))
                         <img src='/{{$post->picture}}'>
                     @endif
                     <button data-toggle="modal" data-target="#post{{$post->id}}">delete</button>
+                    <input type="submit" class="btn">
+                    </form>
                 </div>
             </div>
         </div>

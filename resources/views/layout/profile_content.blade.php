@@ -1,9 +1,9 @@
 <div class="profile_content">
 	<div class="row">
-		<div class="col-xs-12 col-md-3">
+		<div class="col-md-4 col-lg-3 side_nav">
 			@include("layout.sidebar_about")
 		</div><!-- col -->
-		<div class="col-xs-12 col-md-9 col-lg-6 posts_container">
+		<div class="col-xs-12 col-md-8 col-lg-6 posts_container">
 			@if($user->id == Auth::user()->id)
 			<div class="post_form">
 				<form method="POST" action='{{url("new_post")}}' enctype="multipart/form-data" class="row">
@@ -41,8 +41,8 @@
 				@endforeach
 			@endif
 		</div>
-		<div class="col-xs-12 col-md-3">
-			<div class="quick_view_container">
+		<div class="col-lg-3 ifWideScreen">
+			<div class="quick_view_container movable_div">
 				<div class="quick_header">
 					<a href=""><p>Photos</p></a>
 				</div>

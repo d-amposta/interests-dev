@@ -1,4 +1,19 @@
-$(document).ready(function(){
+$(document).ready(function(){    
+
+    $(window).on('resize', function() {
+        var screenWidth=$(window).width();
+        var divToBeMoved = $('.movable_div');
+         if(screenWidth < 1200) {
+            divToBeMoved.detach();
+            divToBeMoved.appendTo('.side_nav');
+        }
+        else {
+            divToBeMoved.detach();
+            divToBeMoved.appendTo('.ifWideScreen');
+        }
+    });
+   
+
 	$(document).on("click", ".landing-nav", function(){
 		var formToShow = $(this).attr("data-target");
 		$(this).closest(".landing-form-container").fadeOut(function(){
@@ -13,19 +28,6 @@ $(document).ready(function(){
     function hideOptions() {
         $(".options_container").css({"visibility":"hidden", "opacity":0});
     }
-
-    $(".pqv_dropdown_btn").on("click", function() {
-        $(this).slideUp(function() {
-            $(".timeline_dropdown_menu").slideDown();    
-        });
-    });
-
-    $(".timeline_btn_collapse").on('click', function(){
-        $(".timeline_dropdown_menu").slideUp(function() {
-            $('.pqv_dropdown_btn').slideDown();
-        });
-
-    });
 
     $(document).on('click', '.option_toggle', function() {
         var optionsContainer = $(this).next();
@@ -55,17 +57,12 @@ $(document).ready(function(){
         $('#add_friend').html('Added to your Interests');
     })
 
-    $('#edit_reply').click(function() {
-        $('.edit_reply').toggle();
-        $('#edit_reply').html('Close');
-    })
+    $(".input").change(function() {
+        $(".file-name").text(this.files[0].name);
+    });
 
     $('.add_photobutton').click(function() {
         $('.addphoto').toggle();
-    })
-
-    $('#avatar').click(function() {
-        $('.change_profile_picture').toggle();
     })
 
 	 function addReply(id) {
