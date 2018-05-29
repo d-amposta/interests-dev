@@ -108,14 +108,15 @@
 				</ul>
 			</div>
 			@elseif(Auth::user()->id != $user->id && !$user->getFollowers->contains(Auth::user()->id))
-			<div class="profile_button"><i class="fas fa-plus"></i></div>
+			<form method="POST" action="{{url('add-to-interests/'.$user->id.'')}}">
+				{{csrf_field()}}
+				<button class="profile_button" type="submit"><i class="fas fa-plus"></i></button>
+			</form>
 			@elseif(Auth::user()->id != $user->id && $user->getFollowers->contains(Auth::user()->id))
-			<div class="profile_button"><i class="fas fa-ellipsis-v"></i></div>
-			<div class="options_container">
-				<ul>
-					<li><a href="">Remove from Interests</a></li>
-				</ul>
-			</div>
+			<form method="POST" action="{{url('remove-interest/'.$user->id.'')}}">
+				{{csrf_field()}}
+				<button class="profile_button" type="submit"><i class="fas fa-minus"></i></button>
+			</form>
 			@endif
 		</div>
 	</div>

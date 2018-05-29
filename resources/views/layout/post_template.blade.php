@@ -16,6 +16,20 @@
     </div>
   </div>
 </div>
+<div class="modal fade" tabindex="-1" role="dialog" id="removeInterest{{$post->user_id}}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>Do you want to remove {{$post->user->name}} from your interests?</p>
+        <form method="POST" action='{{url("remove-interest/".$post->user->id."")}}'>
+            {{csrf_field()}}
+            <input type="submit" name='delete_post' value="Yes">
+            <button data-dismiss="modal">No</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="post_container">
     <div class="post_header">
@@ -32,7 +46,7 @@
             <a href='{{url("edit/post/".$post->id."")}}' class="btn-link"><span class="option_icon"><i class="fas fa-pencil-alt"></i></span>Edit this post</a>
             <button class="btn-link" data-toggle="modal" data-target="#post{{$post->id}}"><span class="option_icon"><i class="fas fa-trash-alt"></i></span>Delete this post</button>
             @else
-            <button class="btn-link"><span class="option_icon"><i class="fas fa-times"></i></span>Remove from Interests</button>
+            <button class="btn-link" data-toggle="modal" data-target="#removeInterest{{$post->user_id}}"><span class="option_icon"><i class="fas fa-times"></i></span>Remove from Interests</button>
             @endif
         </div>
     </div>

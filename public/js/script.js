@@ -1,8 +1,8 @@
 $(document).ready(function(){    
-
+    var screenWidth=$(window).width();
+    var divToBeMoved = $('.movable_div');
+    
     $(window).on('resize', function() {
-        var screenWidth=$(window).width();
-        var divToBeMoved = $('.movable_div');
          if(screenWidth < 1200) {
             divToBeMoved.detach();
             divToBeMoved.appendTo('.side_nav');
@@ -61,10 +61,6 @@ $(document).ready(function(){
         $(".file-name").text(this.files[0].name);
     });
 
-    $('.add_photobutton').click(function() {
-        $('.addphoto').toggle();
-    })
-
 	 function addReply(id) {
             var token = $('#token').val();
             var reply = $('#reply'+id).val();
@@ -91,5 +87,13 @@ $(document).ready(function(){
                 alert("success");
             }
         });
+    });
+
+    $('.add_photobutton').on('mouseover', function() {
+        $('.upload_text').css('opacity', 1);
+    });
+
+     $('.add_photobutton').on('mouseleave', function() {
+        $('.upload_text').css('opacity', 0);
     });
 });

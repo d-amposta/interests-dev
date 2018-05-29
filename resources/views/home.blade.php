@@ -27,8 +27,9 @@
                     <div class="row">
                        <div class="col-xs-12 col-sm-12">
                             <div class="form-group">
-                                <span class="add_photobutton"><i class="fas fa-camera"></i></span>
-                                <input type="file" id='img' name="img" class="addphoto" style="display: none"></input>
+                                <input type="file" id='img' name="img" class="addphoto input" style="display: none"></input>
+                                <p class="file-name"></p>
+                                <label for="img" class="add_photobutton"><span class="upload_icon"><i class="fas fa-camera"></i></span><span class="upload_text">Upload a photo</span></label>
                             </div>
                         </div> 
                     </div>  

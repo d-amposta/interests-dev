@@ -31,10 +31,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('add-to-interests/{id}', function($id) {
 	$user=User::find($id);
 	Auth::user()->addToInterests($user);
+
+	return back();
 });
 
 Route::post('remove-interest/{id}', function($id) {
 	Auth::user()->removeInterest($id);
+
+	return back();
 });
 
 Route::get('search', 'SearchController@displayResults');
