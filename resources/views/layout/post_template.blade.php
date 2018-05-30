@@ -2,15 +2,15 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <p>Are you sure you want to delete this post?</p>
-        <p>{{$post->post}}</p>
+        <p class="modal-inquiry">Are you sure you want to delete this post?</p>
+        <p class="modal-post">{{$post->post}}</p>
         @if(!empty($post->picture))
             <img src="/{{$post->picture}}">
         @endif
         <form method="POST" action='{{url("delete/post/".$post->id."")}}'>
             {{csrf_field()}}
-            <input type="submit" name='delete_post' value="Yes">
-            <button data-dismiss="modal">No</button>
+            <input type="submit" name='delete_post' value="Yes" class="modal-btn modal-btn-danger">
+            <button data-dismiss="modal" class="modal-btn">No</button>
         </form>
       </div>
     </div>
@@ -57,6 +57,6 @@
         @endif
     </div>
     <div class="post_footer">
-        <a href='{{url("post/$post->id")}}'><i class="fas fa-comment"></i><span>{{count($post->replies)}}</span></a>
+        <a href='{{url("post/$post->id")}}'><i class="far fa-comment"></i><span>{{count($post->replies)}}</span></a>
     </div>
 </div>

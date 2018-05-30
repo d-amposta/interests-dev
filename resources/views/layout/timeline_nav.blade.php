@@ -2,7 +2,9 @@
     <div class="profile_quick_view">
         <div class="pqv_header">
             <div class="pqv_auth_cover">
+                @if(!empty(Auth::user()->cover_photo))
                 <img src="/{{Auth::user()->cover_photo}}">
+                @endif
             </div>
             <div class="pqv_auth">
                 <div class="pqv_auth_thumb">

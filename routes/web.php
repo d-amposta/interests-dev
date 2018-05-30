@@ -79,9 +79,11 @@ Route::post('delete/post/{id}', 'PostsController@deletePost');
 
 Route::post('add_reply/{id}', 'RepliesController@showReply');
 
-Route::post('edit_reply/{id}', 'RepliesController@editReply');
+Route::get('edit/reply/{id}', 'RepliesController@editReply');
 
-Route::post('delete_reply/{id}', 'RepliesController@deleteReply');
+Route::post('edit/reply/{id}', 'RepliesController@saveEditReply');
+
+Route::post('delete/reply/{id}', 'RepliesController@deleteReply');
 
 Route::get('/{id}/interests', 'UserController@viewInterests');
 

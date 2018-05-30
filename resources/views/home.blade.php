@@ -54,7 +54,16 @@
                     <ul>
                         @if(count($birthdays) > 0)
                             @foreach($birthdays as $birthday)
-                            <li><a href="{{url('user/'.$birthday->id.'')}}">{{$birthday->name}}</a></li>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                   <div class="post_header_left">
+                                        <a href='{{url("user/$birthday->id")}}'><img src='{{$birthday->avatar}}'></a>
+                                    </div>
+                                    <div class="post_header_content">
+                                        <a href='{{url("user/$birthday->id")}}'>{{$birthday->name}}</a>
+                                    </div> 
+                                </div>
+                            </div>
                             @endforeach
                          @else
                         <li>No one is celebrating their birthday today</li>
@@ -71,25 +80,27 @@
                     <p>Suggested Interests</p>
                 </div>
                 <div class="quick_content">
-                    @foreach($suggested_interests as $suggested_interest)
-                        <!-- if there are suggested interests display results -->
-                        @if(count($suggested_interests) > 1)
+                    <!-- if there are suggested interests display results -->
+                    @if(count($suggested_interests) > 1)
+                        @foreach($suggested_interests as $suggested_interest)
                             @if(Auth::user()->id != $suggested_interest->id && !$interests->contains($suggested_interest->id))
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <a href='{{url("user/$suggested_interest->id")}}'>
-                                            <span><img src='{{$suggested_interest->avatar}}'></span>
-                                            {{$suggested_interest->name}}
-                                        </a>
-                                        
+                                        <div class="post_header_left">
+                                            <a href='{{url("user/$suggested_interest->id")}}'><img src='{{$suggested_interest->avatar}}'></a>
+                                        </div>
+                                        <div class="post_header_content">
+                                            <a href='{{url("$suggested_interest->id")}}'>{{$suggested_interest->name}}</a>
+                                        </div>
                                     </div>
                                 </div>
                             @endif
-                        <!-- if none display message -->
-                        @else
-                            <p>No suggested interests at this time</p>
-                        @endif
-                    @endforeach   
+                        @endforeach
+                        <a href="{{url(''.Auth::user()->id.'/suggested-interests')}}" class="content_link">View all</a>
+                    <!-- if none display message -->
+                    @else
+                        <p>No suggested interests at this time</p>
+                    @endif   
                 </div>    
             </div>
         </div><!-- col --> 

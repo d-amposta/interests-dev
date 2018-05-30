@@ -35,7 +35,7 @@
 						<div class="form-group">
 							<label class="col-md-2 control-label">Location</label>
 							<div class="col-md-10">
-								<input type="text" name="location" value="" class="form-control">
+								<input type="text" name="location" value='{{$user->location}}' class="form-control">
 							</div>
 						</div>	
 					</div>

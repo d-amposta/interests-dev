@@ -2,21 +2,6 @@
 
 @section('content')
 
-<div class="modal fade" tabindex="-1" role="dialog" id="post{{$post->id}}">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <p>Are you sure you want to delete this post?</p>
-        <p>{{$post->post}}</p>
-        <form method="POST" action='{{url("delete/post/".$post->id."")}}'>
-            {{csrf_field()}}
-            <input type="submit" name='delete_post' value="Yes">
-            <button>No</button>
-        </form>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
     <div class="row">
         <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
             <div class="post_container">
@@ -36,8 +21,7 @@
                     @if(!empty($post->picture))
                         <img src='/{{$post->picture}}'>
                     @endif
-                    <button data-toggle="modal" data-target="#post{{$post->id}}">delete</button>
-                    <input type="submit" class="btn">
+                    <input type="submit" class="btn" value="Save changes">
                     </form>
                 </div>
             </div>

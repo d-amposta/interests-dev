@@ -44,18 +44,42 @@
                             </div>
                         </form>
 			    	</div>
-			    	<div class="reply_content">
+			    	<div class="replies_container">
 			    		<p>Replies ({{count($post->replies)}})</p>
 			    		@if($post->replies)
                             @foreach($post->replies as $reply)
-                            <div class="reply_content">
-                                <div class="reply_avatar">
-                                    <img src="/{{$reply->user->avatar}}">
+                            <div class="modal fade" tabindex="-1" role="dialog" id="deleteReply{{$reply->id}}">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-body">
+							        <p class="modal-inquiry">Do you want to delete this reply?</p>
+							        <p>{{$reply->reply}}</p>
+							        <form method="POST" action='{{url("delete/reply/".$reply->id."")}}'>
+							            {{csrf_field()}}
+							            <input type="submit" name='delete_post' value="Yes">
+							            <button data-dismiss="modal">No</button>
+							        </form>
+							      </div>
+							    </div>
+							  </div>
+							</div>
+                            <div class="reply">
+                            	<div class="reply_header">
+                            		<div class="reply_avatar">
+	                                    <img src="/{{$reply->user->avatar}}">
+	                                </div>
+	                                <div class="reply_content">
+	                                	<a href='{{url("".$reply->user->id."")}}'>{{$reply->user->name}}</a>
+	                                	<p class="timestamp">{{$reply->created_at->diffForHumans()}}</p>
+	                                	<p>{{$reply->reply}}</p>
+	                                </div>
+                            	</div>
+                            	@if($reply->user_id == Auth::user()->id)
+                                <div class="reply_footer">
+                                    <a href='{{url("edit/reply/".$reply->id."")}}'>Edit</a>
+                                    <a href="#deleteReply{{$reply->id}}" data-toggle="modal">Delete</a>
                                 </div>
-                                <div class="reply_content">
-                                    <p class="reply_auth">{{$reply->user->name}}</p>
-                                    <p>{{$reply->reply}}</p>
-                                </div>
+                                @endif
                             </div>
                             @endforeach
                         @endif

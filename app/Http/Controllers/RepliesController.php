@@ -27,15 +27,21 @@ class RepliesController extends Controller
 
       return back();
 
-
    }
 
-   function editReply($id, Request $request) {
+   function editReply($id) {
+      $reply = Reply::find($id);
+
+      return view('edit-reply', compact('reply'));
+   }
+
+   function saveEditReply($id, Request $request) {
    	$reply_te = Reply::find($id);
-   	$reply_te->reply = $request->editreply;
+      $post = $reply_te->post;
+   	$reply_te->reply = $request->reply;
    	$reply_te->save();
 
-   	return back();
+   	return redirect()->route('post', [$post]);
    }
 
    function deleteReply($id) {

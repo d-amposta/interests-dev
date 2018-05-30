@@ -119,9 +119,10 @@ class UserController extends Controller
 
 	public function suggestedInterests($id) {
 		$user=User::find($id);
+		
 		$suggested_interests=User::where('interest', 'LIKE', '%'.Auth::user()->interest.'%')->get();
 
-		return view('suggested_interests', compact('user', 'suggested_interests'));
+		return view('suggested_interests', compact('user', 'interests', 'suggested_interests'));
 	}
 	
 }

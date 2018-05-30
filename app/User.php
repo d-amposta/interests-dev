@@ -59,6 +59,10 @@ class User extends Authenticatable
         return $this->posts()->whereNotNull('picture')->latest()->get();
     }
 
+    public function getLatestPhotos() {
+        return $this->posts()->whereNotNull('picture')->limit(9)->latest()->get();
+    }    
+
     function replies() {
         return $this->hasMany('App\Reply');
     }

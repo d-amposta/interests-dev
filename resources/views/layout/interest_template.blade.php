@@ -14,12 +14,12 @@
 			<p>{{$interest->interest}}</p>
 		</div>
 		<div class="interest_options">
-			@if($auth->id != $interest->id && $auth->getInterests->contains($interest->id))
+			@if(Auth::user()->id != $interest->id && Auth::user()->getInterests->contains($interest->id))
 			<form method="POST" action="{{url('remove-interest/'.$interest->id.'')}}">
 				{{csrf_field()}}
 				<button type="submit"><i class="fas fa-times"></i></button>
 			</form>
-			@elseif($auth->id != $interest->id && !$auth->getInterests->contains($interest->id))
+			@elseif(Auth::user()->id != $interest->id && !Auth::user()->getInterests->contains($interest->id))
 			<form method="POST" action="{{url('add-to-interests/'.$interest->id.'')}}">
 				{{csrf_field()}}
 				<button type="submit"><i class="fas fa-plus"></i></button>

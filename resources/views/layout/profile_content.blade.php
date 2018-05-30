@@ -51,14 +51,14 @@
 					<a href=""><p>Photos</p></a>
 				</div>
 				<div class="quick_content quick_content_photos">
-					@foreach($user->getPhotos() as $photo)
+					@foreach($user->getLatestPhotos() as $photo)
 						<div class="thumb_container">
 							<a href="{{url('post/'.$photo->id.'')}}"><img src="/{{$photo->picture}}"></a>
 						</div>		
 					@endforeach				
 				</div>
 				<div class="quick_footer">
-					<a href='{{url("".$user->id."/photos")}}'>View all</a>
+					<a href='{{url("".$user->id."/photos")}}' class="content_link">View all</a>
 				</div>
 			</div>
 		</div>
