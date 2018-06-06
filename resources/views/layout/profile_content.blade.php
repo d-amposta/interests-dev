@@ -1,35 +1,11 @@
 <div class="profile_content">
 	<div class="row">
-		<div class="col-md-4 col-lg-3 side_nav">
+		<div class="col-xs-12 col-md-3 side_about">
 			@include("layout.sidebar_about")
 		</div><!-- col -->
-		<div class="col-xs-12 col-md-8 col-lg-6 posts_container">
+		<div class="col-xs-12 col-md-6 posts_container">
 			@if($user->id == Auth::user()->id)
-			<div class="post_form">
-				<form method="POST" action='{{url("new_post")}}' enctype="multipart/form-data" class="row">
-					{{csrf_field()}}
-					<div class="col-xs-10 col-sm-10">
-						<div class="form-group">
-							<input type="text" id='post' name="post" placeholder="" class="form-control"></input>
-						</div>
-					</div>
-					<div class="col-xs-2 col-sm-2 button">
-						<div class="form-group">
-							<input type="submit" id='addpost' name="addpost" value="Post" class="btn btn-sm" onclick="addPost()"></input>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-12">
-						<div class="form-group">
-							<input type="file" id='img' name="img" class="input" style="display: none"></input>
-							<p class="file-name"></p>
-							<label for="img" class="add_photobutton">
-								<span class="upload_icon"><i class="fas fa-camera"></i></span>
-								<span class="upload_text">Upload a photo</span>
-							</label>
-						</div>
-					</div>	
-				</form>
-			</div>
+			@include('layout.post_form')
 			@endif
 			@if(count($user->getPosts()) == 0)
 				<div class="post_container">
@@ -45,7 +21,7 @@
 				@endforeach
 			@endif
 		</div>
-		<div class="col-lg-3 ifWideScreen">
+		<div class="col-xs-12 col-md-3 ifWideScreen">
 			<div class="quick_view_container movable_div">
 				<div class="quick_header">
 					<a href=""><p>Photos</p></a>

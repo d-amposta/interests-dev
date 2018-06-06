@@ -20,21 +20,6 @@
         <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <div class="mobile_options">
-                    <ul class="nav navbar-nav">
-                        <li><a href=""><i class="fas fa-users" alt="Suggested Interests"></i></a></li>
-                        <li><a href=""><i class="fas fa-sun" alt="Weather"></i></a></li>
-                        <li><a href=""><i class="far fa-calendar" alt="Events"></i></a></li>
-                        <li><a href="{{route('home')}}"><i class="fas fa-newspaper"></i></a></li>
-                    </ul>
-                </div>
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('home') }}">
                         Interests
@@ -45,6 +30,13 @@
                     <!-- Left Side Of Navbar -->
                     @if(Auth::user())
                     <ul class="nav navbar-nav">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".side_nav">
+                            <span class="sr-only">Toggle Navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <span class="navbar-search"><i class="fas fa-search"></i></span>
                         <form class="navbar-form navbar-left" method="get" action='{{url("search")}}'>
                             <div class="input-group">
                                 <input type="text" name="search" placeholder="What are you interested in?" class="form-control">
@@ -61,7 +53,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href='{{url("".Auth::user()->id."")}}'><i class="far fa-clipboard" alt="Posts"></i></a></li>
+                        <li><a href='{{url("/home")}}'><i class="fas fa-home" alt="Timeline"></i></a></li>
                         <li><a href="{{url(''.Auth::user()->id.'/photos')}}"><i class="far fa-image" alt=""></i></a></li>
                         <li><a href='{{url("".Auth::user()->id."/suggested-interests")}}'><i class="fas fa-users" alt="Suggested Interests"></i></a></li>
                         <!-- Authentication Links -->

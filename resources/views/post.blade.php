@@ -33,19 +33,19 @@
 			    		<form method="POST" action='{{url("add_reply/$post->id")}}'>
                             <div class="row">
                                 {{csrf_field()}}
-                                <div class="col-xs-10">
+                                <div class="col-xs-12">
                                     <div class="form-group">
-                                        <input type="text" id='reply{{$post->id}}' name="reply" class="form-control"></input>   
+                                    	<textarea id="reply{{$post->id}}" name="reply" class="form-control post-input" rows="1" placeholder="Write a reply..."></textarea>
                                     </div>
                                 </div>
-                                <div class="col-xs-2 button">
-                                    <input type="button" id='replybutton{{$post->id}}' name="submit" value="Post Reply" class="btn btn-sm" onclick="addReply({{$post->id}})"></input>
+                                <div class="col-xs-4 col-xs-offset-8 button">
+                                    <input type="button" id='replybutton{{$post->id}}' name="submit" value="Post" class="btn btn-sm" onclick="addReply({{$post->id}})"></input>
                                 </div>
                             </div>
                         </form>
 			    	</div>
 			    	<div class="replies_container">
-			    		<p>Replies ({{count($post->replies)}})</p>
+			    		<p>{{count($post->replies)}} Replies</p>
 			    		@if($post->replies)
                             @foreach($post->replies as $reply)
                             <div class="modal fade" tabindex="-1" role="dialog" id="deleteReply{{$reply->id}}">
@@ -56,8 +56,8 @@
 							        <p>{{$reply->reply}}</p>
 							        <form method="POST" action='{{url("delete/reply/".$reply->id."")}}'>
 							            {{csrf_field()}}
-							            <input type="submit" name='delete_post' value="Yes">
-							            <button data-dismiss="modal">No</button>
+							            <input type="submit" name='delete_post' value="Yes" class="modal-btn modal-btn-danger">
+							            <button data-dismiss="modal" class="modal-btn">No</button>
 							        </form>
 							      </div>
 							    </div>

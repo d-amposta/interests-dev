@@ -1,19 +1,5 @@
 $(document).ready(function(){    
-    var screenWidth=$(window).width();
-    var divToBeMoved = $('.movable_div');
-    
-    $(window).on('resize', function() {
-         if(screenWidth < 1200) {
-            divToBeMoved.detach();
-            divToBeMoved.appendTo('.side_nav');
-        }
-        else {
-            divToBeMoved.detach();
-            divToBeMoved.appendTo('.ifWideScreen');
-        }
-    });
    
-
 	$(document).on("click", ".landing-nav", function(){
 		var formToShow = $(this).attr("data-target");
 		$(this).closest(".landing-form-container").fadeOut(function(){
@@ -29,9 +15,21 @@ $(document).ready(function(){
         $(".options_container").css({"visibility":"hidden", "opacity":0});
     }
 
+    $(".navbar-search").on('click', function() {
+        $(".navbar-form").toggle();
+    });
+
+    $(".post-input").on('focus', function() {
+        $(this).attr('rows', '3');
+    });
+
+    $(".post-input").on('focusout', function() {
+        $(this).attr('rows', '1');
+    });
+
     $(document).on('click', '.option_toggle', function() {
         var optionsContainer = $(this).next();
-        var otherContainer = $(".post_header_options");
+        var otherContainer = $(".post_header_options:visible");
         var optionsDisplay = optionsContainer.css('display');
         
         optionsContainer.toggle();

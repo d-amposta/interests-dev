@@ -15,7 +15,7 @@
 		        <div class="post_content">
 		        	<form method="POST" action='{{url("edit/reply/".$reply->id."")}}'>
 		        		{{csrf_field()}}
-		        		<input type="text" name="reply" value="{{$reply->reply}}" class="form-control">
+		        		<textarea name="reply" class="form-control post-input" rows="1" placeholder="Write a reply...">{{$reply->reply}}</textarea>
 		        		<input type="submit" name="edit-reply" value="Save changes" class="btn">
 		        	</form>
 		        </div>

@@ -6,7 +6,7 @@
 
 <div class="row">
 	@include('layout.interest_page_nav')
-	<div class="col-xs-12 col-sm-9">
+	<div class="col-xs-12 col-md-9">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="interests_header">

@@ -2,8 +2,8 @@
 
 @section('content')
 
-@include("layout.profile_header");
+@include("layout.profile_header")
 
-@include("layout.profile_content");
+@include("layout.profile_content")
 
 @endsection

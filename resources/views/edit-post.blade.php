@@ -17,7 +17,7 @@
                 <div class="post_content">
                     <form method="POST" action='{{url("edit/post/".$post->id."")}}'>
                         {{csrf_field()}}
-                        <input type="text" name="post" value="{{$post->post}}" placeholder="Write a caption..." class="form-control">
+                        <textarea name="post" class="form-control post-input" rows="1" placeholder="What's on your mind?">{{$post->post}}</textarea>
                     @if(!empty($post->picture))
                         <img src='/{{$post->picture}}'>
                     @endif

@@ -1,15 +1,15 @@
-<div class="col-sm-4">
+<div class="col-xs-12 col-sm-6 col-md-4">
 	<div class="interest_container">
 		<div class="interest_header">
 			<div class="interest_avatar">
 				<a href='{{url("$interest->id")}}'><img src="/{{$interest->avatar}}"></a>
 			</div>
+		</div>
+		<div class="interest_content">
 			<div class="interest_info">
 				<a href='{{url("$interest->id")}}'>{{$interest->name}}</a>
 				<p>{{$interest->bio}}</p>
 			</div>
-		</div>
-		<div class="interest_content">
 			<p>Interested in</p>
 			<p>{{$interest->interest}}</p>
 		</div>

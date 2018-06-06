@@ -7,6 +7,9 @@
 		</div>
 		<div class="col-xs-12 col-md-9">
             <div class="result_container">
+                <div class="result_header">
+                    <p>Suggested interests</p>
+                </div>
                 <div class="result_content">
                     <div class="row">
                         <!-- if there are suggested interests display results -->

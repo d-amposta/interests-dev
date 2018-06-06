@@ -1,4 +1,4 @@
-<div class="side_option_nav">
+<div class="side_option_nav side_nav">
 	<div class="side_option_header">
 		<p>Profile Settings</p>
 	</div>

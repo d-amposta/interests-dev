@@ -51,7 +51,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
-      	<img src="{{$user->avatar}}">
+      	<img src="/{{$user->avatar}}">
       </div>
     </div>
   </div>
@@ -72,10 +72,12 @@
 					</div>
 					<div class="author_content">
 						<p>{{$user->name}}</p>
+						<p class="mobile_content">{{$user->bio}}</p>
+						<p class="mobile_content">Interested in: {{$user->interest}}</p>
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-12 col-md-9 col-lg-6">
+			<div class="col-xs-12 col-md-9 col-lg-6 p-nav">
 				<ul>
 					<li><a href='{{url("$user->id")}}'>
 						<span class="profilenav_label">Posts</span>
