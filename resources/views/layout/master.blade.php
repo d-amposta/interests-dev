@@ -16,6 +16,38 @@
      <!-- jQuery library -->
 </head>
 <body>
+    <div class="mobile-collapse">
+        <nav>
+            <ul>
+                <li class="menu-brand">Interests</li>
+                <li><a href='{{url("".Auth::user()->id."")}}'>
+                    <span class="timeline_nav_icon"><i class="fas fa-user"></i></span>
+                    <span>Profile</span>
+                </a></li>
+                <li><a href="{{url(''.Auth::user()->id.'/photos')}}">
+                    <span class="timeline_nav_icon"><i class="far fa-image"></i></span>
+                    <span>Photos</span>
+                </a></li><li><a href='{{url("".Auth::user()->id."/suggested-interests")}}'>
+                    <span class="timeline_nav_icon"><i class="fas fa-users"></i></span>
+                    <span>Suggested Interests</span>
+                </a></li>
+                <li class="menu-text">Account</li>
+                <li><a href="{{url(''.Auth::user()->id.'/edit/profile')}}">
+                    <span class="timeline_nav_icon"><i class="far fa-edit"></i></span>
+                    <span>Edit Profile</span>
+                </a></li>
+                <li><a href='{{url("".Auth::user()->id."/account-settings")}}'>
+                    <span class="timeline_nav_icon"><i class="fas fa-cog"></i></span>
+                    <span>Account Settings</span>
+                </a></li>
+                <!-- FIX THISSS! -->
+                <li><a href="{{url(''.Auth::user()->id.'/logout')}}">
+                    <span class="timeline_nav_icon"><i class="fas fa-sign-out-alt"></i></span>
+                    <span>Log Out</span>
+                </a></li>
+            </ul>
+        </nav>
+    </div>
 	<div id="app">
         <nav class="navbar navbar-default">
             <div class="container">
@@ -25,18 +57,10 @@
                         Interests
                     </a>
                 </div>
-                
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     @if(Auth::user())
                     <ul class="nav navbar-nav">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".side_nav">
-                            <span class="sr-only">Toggle Navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <span class="navbar-search"><i class="fas fa-search"></i></span>
                         <form class="navbar-form navbar-left" method="get" action='{{url("search")}}'>
                             <div class="input-group">
                                 <input type="text" name="search" placeholder="What are you interested in?" class="form-control">
@@ -73,6 +97,23 @@
                 </div>
             </div>
         </nav>
+        <div class="mobile-menu">
+            <div class="mobile-nav">
+                <ul>
+                    <li><a href='{{url("/home")}}'><i class="fas fa-home" alt="Timeline"></i></a></li>
+                    <li><a href="{{url(''.Auth::user()->id.'/photos')}}"><i class="far fa-image" alt=""></i></a></li>
+                    <li><a href='{{url("".Auth::user()->id."/suggested-interests")}}'><i class="fas fa-users" alt="Suggested Interests"></i></a></li>
+                    <li class="mobile-search-btn"><i class="fas fa-search"></i></li>
+                    <li class="mobile-toggle"><i class="fas fa-bars"></i></li>
+                </ul> 
+            </div>
+            <div class="mobile-search">
+                <form method="GET" action="{{url('search')}}">
+                    <input type="text" name="search" placeholder="What are you interested in?">
+                    <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </form>
+            </div>
+        </div>
         <div class="master-container">
             @yield('content')    
         </div>

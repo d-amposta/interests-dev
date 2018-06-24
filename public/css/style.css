@@ -73,8 +73,9 @@ nav .glyphicon {
 	color: #403f3f;
 }
 
-.fa-newspaper {
-	margin-right: 30px;
+.mobile-menu,
+.mobile-collapse {
+	display: none;
 }
 
 input[type="text"]:focus,
@@ -353,10 +354,7 @@ a:hover {
 .timeline_nav_icon {
 	display: inline-block;
 	width: 20px;
-}
-
-.timeline_nav ul>li>a span {
-	padding-left: 5px;
+	padding-right: 5px;
 }
 
 .timeline_nav p {
@@ -1233,13 +1231,15 @@ img {
 	}
 
 	.master-container {
+		padding-top: 30px;
 		padding-left: 100px;
 		padding-right: 100px;
-		top: 100px;
+		top: 40px;
 	}
 
 	.navbar {
-		height: auto;
+		display: none;
+		border: none;
 	}
 
 	.navbar .container {
@@ -1254,7 +1254,7 @@ img {
 		float: none!important;
 	}
 
-	.navbar-header {
+	.navbar-brand {
 		display: none;
 	}
 
@@ -1266,37 +1266,23 @@ img {
 		position: relative;
 	}
 
-	.navbar-search {
-		display: inline-block;
-		position: absolute;
-		right: 45px;
-		color: #cc2774;
-		font-size: 1.3em;
-	}
-
 	.navbar-form {
 		height: 100%;
 		position: absolute;
 		top: 0;
 		left: 50%;
 		transform: translateX(-50%);
+		padding: 10px 0;
 		z-index: 999;
 	}
 
-	.navbar-default .navbar-toggle,
-	.navbar-search {
-		top: 20px;
-	}
-
-	.navbar-default .navbar-toggle .icon-bar {
-		background-color: #cc2774;
-		height: 2px;
+	.navbar-form .input-group>.form-control, .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group{
+		height: 35px;
+		padding: 10px;
 	}
 
 	.navbar-right {
-		width: 100%;
-		display: flex;
-		justify-content: space-around;
+		display: none;
 	}
 
 	.navbar-form {
@@ -1304,11 +1290,114 @@ img {
 	}
 
 	.navbar-form .input-group>.form-control {
-		width: 200px;
+		width: 300px;
 	}
 
 	.nav>li:last-of-type {
 		display: none;
+	}
+
+	.mobile-menu {
+		display: block;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		padding: 15px 0;
+		background-color: #fff;
+		border-bottom: 1px solid #f2f2f2;
+		padding-bottom: 10px;
+		z-index: 999;
+	}
+
+	.mobile-header {
+		height: 40px;
+	}
+
+	.mobile-nav {
+		padding: 5px 0;
+	}
+
+	.mobile-menu ul {
+		list-style-type: none;
+		display: flex;
+		justify-content: space-around;
+		margin: 0;
+		padding: 0 100px;
+		width: 100%;
+	}
+
+	.mobile-menu ul>li>a,
+	.mobile-menu ul>li {
+		color: #cc2774;
+	}
+
+	.mobile-search {
+		display: none;
+		margin-top: 5px;
+	}
+
+	.mobile-search form {
+		width: 80%;
+		margin: auto;
+		padding: 5px 20px;
+		border: 1px solid #f2f2f2;
+		border-radius: 10px;
+	}
+
+	.mobile-search input {
+		width: 85%;
+	}
+
+	.mobile-search input:focus {
+		border: none;
+	}
+
+	.mobile-search button {
+		position: absolute;
+		right: 12%;
+	}
+
+	.mobile-search input,
+	.mobile-search button {
+		border: none;
+		background-color: rgba(0,0,0,0);
+	}
+
+	.mobile-collapse {
+		display: none;
+		position: fixed;
+		top: 55px;
+		right: 100px;
+		background-color: #fff;
+		height: 250px;
+		padding: 10px 20px;
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		z-index: 9999;
+	}
+
+	.mobile-collapse ul {
+		list-style-type: none;
+		padding: 0;
+	}
+
+	.mobile-collapse ul>li>a,
+	.mobile-collapse ul>li {
+		display: block;
+		color: #403f3f;
+	}
+
+	.mobile-collapse .menu-text {
+		font-size: 1.1em;
+		padding: 10px 0;
+	}
+
+	.mobile-collapse .menu-brand {
+		display: none;
+		color: #cc2774;
+	}
+
+	.mobile-collapse ul>li>a {
+		padding: 5px 0;
 	}
 
 	.img_container {
@@ -1402,6 +1491,10 @@ img {
 	.side_about {
 		display: none;
 	}
+
+	.result_header {
+		margin-bottom: 10px;
+	}
 }
 
 @media screen and (max-width: 767px) {
@@ -1428,16 +1521,11 @@ img {
 		display: none;
 	}
 
-	.collapse {
-		display: block;
-	}
-
-	.navbar-header {
+	.navbar-brand {
 		display: none;
 	}
 
-	.navbar-nav,
-	.navbar-right {
+	.navbar-nav {
 		display: block;
 		background-color: #fff;
 		width: 100%;
@@ -1445,28 +1533,50 @@ img {
 		margin: 0
 	}
 
-	.navbar-toggle {
-		float: none;
-	}
-
 	.navbar-right {
-		width: 100%;
-		display: flex;
-		justify-content: space-around;
+		display: none;
 	}
 
 	.navbar-form {
 		display: none;
 	}
+	.navbar-form .input-group>.form-control {
+		width: 200px;
+	}
 
 	.master-container {
 		padding-left: 15px;
 		padding-right: 15px;
-		top: 100px;
+		top: 30px;
 	}
 
 	.img_container {
 		height: 150px;
+	}
+
+	.mobile-menu ul {
+		padding: 0 10px;
+	}
+
+	.mobile-collapse {
+		width: 100%;
+		height: 100vh;
+		right: unset;
+	}
+
+	.mobile-collapse ul>li>a {
+		font-size: 1.2em;
+	}
+
+	.mobile-collapse .menu-text {
+		font-size: 1.3em;
+	}
+
+	.mobile-collapse .menu-brand {
+		display: block;
+		font-size: 1.3em;
+		padding-bottom: 5px;
+		color: #cc2774;
 	}
 
 	/*profile*/

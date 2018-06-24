@@ -7,6 +7,16 @@ $(document).ready(function(){
 		});
 	});
 
+    $('.mobile-search-btn').on('click', function() {
+        $(".mobile-collapse:visible").hide();
+        $('.mobile-search').toggle();
+    });
+
+    $(".mobile-toggle").on('click', function() {
+        $(".mobile-search:visible").hide();
+        $(".mobile-collapse").toggle();
+    });
+
     function showOptions() {
         $(".options_container").css({"visibility":"visible", "opacity":1});
     }
