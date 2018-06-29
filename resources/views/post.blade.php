@@ -39,7 +39,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-4 col-xs-offset-8 button">
-                                    <input type="button" id='replybutton{{$post->id}}' name="submit" value="Post" class="btn btn-sm" onclick="addReply({{$post->id}})"></input>
+                                    <input type="submit" id='replybutton{{$post->id}}' name="submit" value="Post" class="btn btn-sm"></input>
                                 </div>
                             </div>
                         </form>
